@@ -44,11 +44,22 @@
 
       <!-- Content -->
       <ion-content>
-        <ion-list>
+        <div class="row">
+          <div class="col col-50">
+              <button class="button button-block button-positive" ng-click="onItemAdd()">Add</button>
+          </div>
+          <div class="col col-50">
+              <button class="button button-block button-assertive" ng-click="onClickRemove()">Remove</button>
+          </div>
+        </div>
+
+        <ion-list show-delete="removeStatus">
           <ion-item ng-repeat="item in lista track by $index" ng-hide="onHideItem(item)">
             <div class="row">
               <div class="col col-90">
                 {{ item.nome }}
+                <ion-delete-button class="ion-minus-circled" ng-click="onItemRemove(item)"></ion-delete-button>
+                <ion-option-button class="button-positive" ng-click="onItemEdit(item)">Edit</ion-option-button>
               </div>
               <div class="col col-10">
                 <button type="button"
